@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chill Playlist</title>
+    <link rel="stylesheet" href="music.css">
+    <script>
+        
+        const chillSongs = [
+            { title: "Tiramisu Cake", artist: "We Are The Night", link: "https://www.youtube.com/watch?v=sg8tJnndyiI",summary: "We Are The Night is a K-pop group of 4 members. Debuting in 2013 under Ruby Records now in big.wav Music. They were once a highschool band in 2001. ", ratings: [] },
+            { title: "Season", artist: "Wave to Earth", link: "https://www.youtube.com/watch?v=CnVVjLOGVoY", summary: "Wave to Earth is a famous K-pop group of 3 members. Debuting in 2019 under Wavy and being the top indie k-pop group worldwide", ratings: [] },
+            { title: "Twilight", artist: "Stray Kids", link: "https://www.youtube.com/watch?v=GBoHUDOc4Qo", summary: "Stray Kids is a famous K-pop group of 8 members once being 9. Debuting in 2018 under JYP Entertainment and having four charting albums to No.1 on the Billboard 200 in a row.", ratings: [] },
+            { title: "Rainy Days", artist: "V", link: "https://www.youtube.com/watch?v=yTsINmrAK4I", summary: "Kim Taehyung also known as V, is a member of BTS debuting as a solo artist in 2023 and being the first Asian performer to be named Artist of the Year at the American Music Awards and being declared the world’s most handsome man", ratings: [] },
+            { title: "You Were Beautiful", artist: "DAY6", link: "https://www.youtube.com/watch?v=BS7tz2rAOSA", summary: "Day6 is a famous K-pop group of 4 members once being 6. Debuting in 2015 under JYP Entertainment and having a song at No.2 on Billboard's World Album Chart ", ratings: [] },
+            { title: "Life Is Still Going On", artist: "NCT DREAM", link: "https://www.youtube.com/watch?v=8khwZ4Dql_k",summary: "NCT DREAM is a famous K-pop group of 7 members. Debuting in 2016 under SM Entertainment and having an album becoming the best-selling album on the Gaon Chart in the first half of 2021 and was named Best Album at the 31st Seoul Music Awards.", ratings: [] },
+            { title: "Hijo De La Luna", artist: "Forestella", link: "https://www.youtube.com/watch?v=uIFJ8tQ_5uI", summary: "Forestella is a K-pop group of 4 members. Debuting in 2018 under Art & Artists, now in Beat Interactive. Joining a tv competition show and winning six consecutive episodes, being a record in the show's history", ratings: [] },
+            { title: "Impurities", artist: "LE SSERAFIM", link: "https://www.youtube.com/watch?v=Ccz123Jlflc", summary: "Le Sserafim is a famous K-pop group of 5 members once being 6. Debuting in 2022 under SM Entertainment and breaking the record for the highest-selling debut album by a K-pop girl group in first-day sales", ratings: [] },
+            { title: "RE-BYE", artist: "AKMU", link: "https://www.youtube.com/watch?v=ST8O-AeY3Uo",summary: "AKMU is a sibling K-pop duo. Debuting in 2012 under YG and being given the honorific title The Nation's Siblings", ratings: [] },
+            { title: "The Visitor", artist: "IU", link: "https://www.youtube.com/watch?v=y5YmTj8KDWM",summary: "Lee Ji Eun also known as IU is a famous soloist debuting in 2008 under EDAM now being in Warner Taiwan. Known for being the best and honored soloist worldwide and being a license police officer", ratings: [] },
+    ];
+    
+    function getRandomSongs() {
+            const shuffled = [...chillSongs]; 
+            shuffled.sort(() => Math.random() - 0.5); 
+            return shuffled.slice(0, 1);  
+        }
+
+   
+        function handleRating(songIndex, rating) {
+            const song = chillSongs[songIndex];
+            song.ratings.push(rating);  
+            const heartIcons = document.querySelectorAll(`#song-${songIndex} .heart`);
+          
+            heartIcons.forEach((heart, index) => {
+                if (index < rating) {
+                    heart.classList.add('filled');
+                } else {
+                    heart.classList.remove('filled');
+                }
+            });
+
+            updatePercentage(songIndex);
+        }
+
+       
+        function updatePercentage(songIndex) {
+            const song = chillSongs[songIndex];
+            const totalRatings = song.ratings.length;
+            const ratingCounts = [0, 0, 0, 0, 0]; 
+
+           
+            song.ratings.forEach(rating => {
+                ratingCounts[rating - 1]++;
+            });
+
+          
+            const percentage = ((ratingCounts.slice(2).reduce((sum, count) => sum + count, 0) / totalRatings) * 100).toFixed(1);
+
+            const percentageElement = document.querySelector(`#song-${songIndex} .percentage`);
+            percentageElement.textContent = `${percentage}% agree with your rating.`;
+        }
+
+        function generatePlaylist() {
+            const playlist = getRandomSongs(); 
+            const playlistElement = document.getElementById("playlist");
+
+            playlist.forEach((song, index) => {
+                const li = document.createElement("li");
+                li.id = `song-${index}`; 
+
+                const songContainer = document.createElement("div");
+                songContainer.classList.add("song-container");
+
+              
+                const title = document.createElement("div");
+                title.classList.add("song-title");
+                title.textContent = song.title;
+
+                const artist = document.createElement("div");
+                artist.classList.add("song-artist");
+                artist.textContent = `by ${song.artist}`;
+
+                
+                const summary = document.createElement("div");
+                summary.classList.add("song-summary");
+                summary.textContent = song.summary;
+
+           
+                const thumbnail = document.createElement("img");
+                thumbnail.src = `https://img.youtube.com/vi/${song.link.split('v=')[1]}/hqdefault.jpg`; 
+                thumbnail.alt = "Click to watch the video";
+                thumbnail.style.cursor = "pointer";  
+
+            
+                thumbnail.addEventListener("click", function() {
+                    window.open(song.link, "_blank");  
+                });
+
+             
+                const heartContainer = document.createElement("div");
+                heartContainer.classList.add("heart-container");
+
+                for (let i = 1; i <= 5; i++) {
+                    const heart = document.createElement("span");
+                    heart.classList.add("heart");
+                    heart.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`; // Heart SVG
+
+                    
+                    heart.addEventListener("click", function() {
+                        handleRating(index, i);  
+                    });
+
+                    heartContainer.appendChild(heart);
+                }
+
+            
+                const percentageElement = document.createElement("div");
+                percentageElement.classList.add("percentage");
+                percentageElement.textContent = "0% agree with your rating.";
+
+                
+                songContainer.appendChild(title);
+                songContainer.appendChild(artist);
+                songContainer.appendChild(thumbnail);
+                songContainer.appendChild(summary);
+                songContainer.appendChild(heartContainer);
+                songContainer.appendChild(percentageElement);
+
+                
+                li.appendChild(songContainer);
+                playlistElement.appendChild(li);
+            });
+        }
+        window.onload = generatePlaylist;
+    </script>
+</head>
+<body class="chill-background">
+    <header>
+        <h1>Chill Playlist</h1>
+    </header>
+    
+    <main>
+        <h2>Your Chill Songs</h2>
+        <ul id="playlist"></ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Music Playlist App</p>
+    </footer>
+</body>
+</html>

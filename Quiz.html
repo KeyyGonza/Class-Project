@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which K-pop Artist/Group suits you?</title>
+    <link rel="stylesheet" href="music.css">
+    
+</head>
+<body class="Quiz-page">
+    <div class="container">
+        <h1>Which K-pop Group suits you?</h1>
+        <section>
+                <label for="q1">What's your favorite music genre?</label>
+                <select id="q1">
+                    <option value="1">Rock</option>
+                    <option value="2">Ballads</option>
+                    <option value="3">EDM</option>
+                    <option value="4">Pop</option>
+                </select>
+                </section>
+                <br  /><br   /><br  />
+         <section>
+                <label for="q2">Which of these traits do you admire most in an idol?</label>
+                <select id="q2">
+                    <option value="1">Ability to ace at singing, dancing, and rapping</option>
+                    <option value="2">Send out a powerful message through their songs</option>
+                    <option value="3">Charisma and stage presence</option>
+                    <option value="4">Passion for their job</option>
+                </select>
+                </section>
+                 <br  /><br   /><br  />
+
+            <section>
+                    <label for="q3">What kind of concept do you enjoy the most?</label>
+                    <select id="q3">
+                        <option value="1">Powerful and rebellious</option>
+                        <option value="2">Healing and soothing</option>
+                        <option value="3">Youthful and carefree</option>
+                        <option value="4">Girl crush or boy crush</option>
+                    </select>
+                    </section>
+                    <br  /><br   /><br  />
+
+            <section>
+                    <label for="q4">Which of these best describes you?</label>
+                    <select id="q4">
+                        <option value="1">I love being in the spotlight</option>
+                        <option value="2">I prefer to be quite and calm</option>
+                        <option value="3">I enjoy being happy and alive </option>
+                        <option value="4">I love freely and openly</option>
+                    </select>
+                    </section>
+                    <br  /><br   /><br  />
+
+            <section>
+                    <label for="q5">How would you describe your energy?</label>
+                    <select id="q5">
+                        <option value="1">Passion and focus</option>
+                        <option value="2">Calm and collected mindset</option>
+                        <option value="3">Energetic and filled with excitement</option>
+                        <option value="4">Affectionate and expressive</option>
+                    </select>
+                    </section>
+                    <br  /><br   /><br  />
+
+            <section>
+                    <label for="q6">What is the most important thing for you in a group?</label>
+                    <select id="q6">
+                        <option value="1">The choreography and live performances</option>
+                        <option value="2">The music and songs they release</option>
+                        <option value="3">Visuals and concepts they take</option>
+                        <option value="4">Their global reach and influence</option>
+                    </select>
+                    </section>
+                    <br  /><br   /><br  />
+
+                    <button type="button" onclick="calculateResult()">Get Result</button>
+                    <p id="result"></p>
+                    </div>
+    <script>
+        function calculateResult() {
+            let score = 0;
+            let resultText = '';
+
+            let responses = [
+            document.getElementById('q1').selectedOptions[0].value,
+            document.getElementById('q2').selectedOptions[0].value,
+            document.getElementById('q3').selectedOptions[0].value,
+            document.getElementById('q4').selectedOptions[0].value,
+            document.getElementById('q5').selectedOptions[0].value,
+            document.getElementById('q6').selectedOptions[0].value,
+        ];
+            if (responses.includes("")) {
+                alert("Please answer all questions before proceeding.");
+                return;
+    }
+    responses.forEach(response => {
+            score += parseInt(response);
+
+    });
+            
+            if (score <= 12) {
+                resultText = "You are matched with BTS/ATEEZ/STRAYKIDS/BADVILLIAN/BLACKPINK/KISS OF LIFE!";
+            } else if (score <= 16) {
+                resultText = "You are matched with WAVE TO EARTH/DAY6/FORESTELLA/REDVELVET/GFRIEND/AKMU!";
+            } else if (score <= 20) {
+                resultText = "You are matched with BOYNEXTDOOR/TXT/ENHYPEN/ITZY/CHERRYBULLET/KEPLER/FROMIS_9!";
+            } else {
+                resultText = "You are matched with TWICE/NEWJEANS/ILLIT/ASTRO/NCT DREAM!";
+            }
+
+            document.getElementById("result").textContent = resultText;
+        }
+    </script>
+</body>
+</html>

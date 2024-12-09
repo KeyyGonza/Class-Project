@@ -1,0 +1,215 @@
+html, body {
+    height: 100%;
+    margin: 0; /* Remove default margins */
+    overflow: hidden; /* Prevent scrolling */
+}
+body.music-page {
+    background-image: url(Home.jpg); /* Adjust the path as needed */
+    background-size: contain; /* Scale the image to cover the entire area */
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-position: center; /* Center the image */
+}
+.happy-background {
+    background-image: url(happy.jpg); /* Adjust the path if necessary */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.sad-background {
+    background-image: url(sad.jpg); /* Adjust the path if necessary */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.love-background {
+    background-image: url(love.jpg); /* Adjust the path if necessary */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.chill-background {
+    background-image: url(chill.jpg); /* Adjust the path if necessary */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+body.Quiz-page {
+    
+    background-color: #ffd8d8; 
+    color: #a06868; 
+
+}
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            font-size: 20px;
+            background-color: #1db954; /* Spotify green */
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #b67979; /* Darker green on hover */
+        }
+
+        main {
+            margin: 20px;
+            text-align: center;
+        }
+        #mood {
+            position: relative;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .mood-button.H {
+            background-color: #ffffff;
+            color: #d7bd15;
+            border: 3px solid #f6ff00;
+            padding: 100px 90px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+             top: 11.5%; /* Adjust as needed */
+             left: 69.4%;
+            
+        }
+        .mood-button.S {
+            background-color: #fff;
+            color: #abd3ff;
+            border: 2px solid #0040ff;
+            padding: 100px 90px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+            top: 55%; /* Adjust as needed */
+             left: 70.5%;
+        }
+        .mood-button.L {
+            background-color: #fff;
+            color: #ffabc6;
+            border: 2px solid #ff8484;
+            padding: 100px 90px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+            top: 11.5%; /* Adjust as needed */
+             left: 39.2%;
+        }
+        .mood-button.C {
+            background-color: #fff;
+            color: #40b84c;
+            border: 2px solid #1db954;
+            padding: 100px 90px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+            top: 55%; /* Adjust as needed */
+             left: 39.2%;
+        }
+        .mood-button.Q {
+            background-color: #5d5d5d;
+            color: #000000;
+            border: 2px solid #ffffff;
+            padding: 10px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+            top: 90%; /* Adjust as needed */
+             left: 53%;
+        }
+
+        .mood-button.S:hover {
+            background-color: #2f00ff;
+            color: rgb(255, 255, 255);
+        }
+        .mood-button.H:hover {
+            background-color: #fcffa7;
+            color: rgb(0, 0, 0);
+        }
+        .mood-button.L:hover {
+            background-color: #ffabc6;
+            color: rgb(255, 255, 255);
+        }
+        .mood-button.C:hover {
+            background-color: #00ff66;
+            color: rgb(0, 0, 0);
+        }
+        .mood-button.Q:hover {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #playlist {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #playlist li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+        .heart {
+            cursor: pointer;
+            margin: 0 5px;
+            width: 24px;
+            height: 24px;
+            fill: gray; /* Initial color (gray) */
+        }
+
+        .heart.filled {
+            fill: red;  /* Filled hearts are red */
+        }
+
+        .heart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+        }
+
+    
